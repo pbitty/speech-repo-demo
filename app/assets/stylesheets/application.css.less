@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *
+*/
+//
+@import "twitter-bootstrap/bootstrap.less";
+@import "twitter-bootstrap/responsive.less";
+
+// Mixins
+.darker-translucent-bg() {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+// Global stuff
+.body-content {
+    padding-top: @navbarHeight + 20px;
+}
+
+.navbar {
+    margin-bottom: 10px;
+    .navbar-inner {
+        .border-radius(0);
+
+        .brand {
+            a {
+                color: inherit;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        .navbar-text {
+            line-height: 19px;  // Hard-coded to match 'li.nav > a' styling
+            padding: 9px 10px 11px;
+        }
+        ul.dropdown-menu {
+            right: -6px;
+            top: 84%;
+        }
+        ul.nav {
+            > li {
+                &.divider-vertical {
+                    margin: 0;
+                }
+
+                & > a {
+                    .transition(background-color 0.1s);
+                }
+
+            // This locks us into a 'li > a' hierarchy,
+            // but it's contained to the navbar structure, so it's easy to tweak later.
+                &.dropdown.open > a,
+                > a:hover {
+                    .darker-translucent-bg();
+                }
+
+                &.dropdown.active > a,
+                &.dropdown.open.active > a {
+                // Override Bootstrap's 'transparent' bg color
+                    background-color: @navbarLinkBackgroundActive;
+                }
+            }
+        }
+    }
+}
+
+#sign-in {
+    margin-top: 20px;
+    form {
+        margin: 0;
+
+        input[type=text],
+        input[type=email],
+        input[type=password] {
+            .box-sizing(border-box);
+            .size(auto, 100%);
+            font-size: 20px;
+        }
+        .fields {
+            margin: 12px 0;
+        }
+    }
+}

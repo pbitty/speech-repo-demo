@@ -1,0 +1,30 @@
+!!! 5
+%html
+  %head
+    %title MciRailsDemo
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          .pull-right
+            %ul.nav
+              = render 'layouts/user-menu'
+              %li= signin_signout_link
+          = link_to "Glendon Interpretation", root_path, class: "brand"
+          = render 'layouts/nav'
+    .body-content
+      .container-fluid
+        .row-fluid
+          .span4 &nbsp;
+          .span4
+            - flash.each do |key, msg|
+              %div.fade.in{class: "alert alert-#{key}"}
+                %a.close{"data-dismiss" => "alert"} &times;
+                = msg
+        .row-fluid
+          .span1 &nbsp;
+          .span10
+            = yield

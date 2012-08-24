@@ -6,6 +6,12 @@
 
 // GLOBAL VALUES
 // --------------------------------------------------
+// Pallete
+@primary1: #0068a5;
+@primary2: #1f597c;
+@primary3: #00436b;
+@primary4: #3597d2;
+@primary5: #5fa7d2;
 
 
 // Grays
@@ -39,19 +45,21 @@
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             @primary1; //#08c;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+@sansFontFamily:        "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
 
-@baseFontSize:          13px;
+@baseFontSize:          16px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        18px;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
@@ -129,8 +137,8 @@
 
 // Sprite icons path
 // -------------------------
-@iconSpritePath:          "../img/glyphicons-halflings.png";
-@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+@iconSpritePath:          "glyphicons-halflings.png";
+@iconWhiteSpritePath:     "glyphicons-halflings-white.png";
 
 
 // Input placeholder text color
@@ -146,11 +154,11 @@
 // Navbar
 // -------------------------
 @navbarHeight:                    40px;
-@navbarBackground:                @grayDarker;
-@navbarBackgroundHighlight:       @grayDark;
+@navbarBackgroundHighlight:       @primary1;
+@navbarBackground:                darken(@primary1, 10%);
 
-@navbarText:                      @grayLight;
-@navbarLinkColor:                 @grayLight;
+@navbarText:                      @grayLighter;
+@navbarLinkColor:                 @grayLighter;
 @navbarLinkColorHover:            @white;
 @navbarLinkColorActive:           @navbarLinkColorHover;
 @navbarLinkBackgroundHover:       transparent;
