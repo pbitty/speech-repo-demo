@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def nav_link(label, path)
+    active_link_to label, path, wrap_tag: :li
+  end
+
   def signin_signout_link
     account_signed_in? ? signout_link : signin_link
   end

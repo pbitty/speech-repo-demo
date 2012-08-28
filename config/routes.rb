@@ -1,6 +1,23 @@
 MciRailsDemo::Application.routes.draw do
-  devise_for :accounts
+  devise_for :accounts, path:'/', path_names: {sign_in: 'signin', sign_out: 'signout'}
   root to: "home#index"
+
+
+  #
+  # Stubs
+  #
+  def create_stub(stub_name)
+    match "#{stub_name}" => "stub##{stub_name}", as: stub_name
+  end
+
+  %w(concatenator speeches interpretations).each { |stub_name| create_stub stub_name }
+
+  scope "/admin" do
+    create_stub "accounts"
+    scope "/options" do
+      %w(difficulty language setting speed yearofstudy).each { |stub| create_stub stub }
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,9 +2,10 @@
   .span4 &nbsp;
   #sign-in.span4
     .well
-      .h3 Sign in
+      %h3 Sign in
       = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-        .fields
-          = f.input :email
-          = f.input :password
-        = f.button :submit, "Sign in", class: "btn btn-large pull-right"
+        %fieldset
+          .fields
+            = f.input :email, autofocus: true
+            = f.input :password
+          = f.button :submit, "Sign in", class: "btn btn-large pull-right"

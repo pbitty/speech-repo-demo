@@ -6,17 +6,17 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .navbar.navbar-fixed-top
+    .navbar
       .navbar-inner
         .container-fluid
           .pull-right
-            %ul.nav
-              = render 'layouts/user-menu'
-              %li= signin_signout_link
-          = link_to "Glendon Interpretation", root_path, class: "brand"
+            = render 'layouts/user-menu'
+          .pull-left
+            .brand
+              = link_to "Glendon Interpretation", root_path
           = render 'layouts/nav'
-    .body-content
-      .container-fluid
+    .container-fluid
+      - unless flash.empty?
         .row-fluid
           .span4 &nbsp;
           .span4
@@ -24,7 +24,7 @@
               %div.fade.in{class: "alert alert-#{key}"}
                 %a.close{"data-dismiss" => "alert"} &times;
                 = msg
-        .row-fluid
-          .span1 &nbsp;
-          .span10
-            = yield
+      .row-fluid
+        .span1 &nbsp;
+        .span10
+          = yield

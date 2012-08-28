@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'devise', '2.1.2'
 gem 'sqlite3'
 gem 'simple_form'
+gem 'active_link_to'
 
 
 group :development, :test do
