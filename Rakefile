@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MciRailsDemo::Application.load_tasks
+SpeechRepoDemo::Application.load_tasks
