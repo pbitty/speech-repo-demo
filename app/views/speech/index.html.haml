@@ -1,0 +1,32 @@
+%h1 Speeches
+%hr
+.row-fluid
+  .span1 &nbsp;
+  .span10
+    %ul.speeches
+      - @speeches.each do |speech|
+        %li
+          .speech
+            .row-fluid
+              .span6
+                .row-fluid.headings
+                  .span4 Language
+                  .span4 Setting
+                  .span4 Topic
+                .row-fluid.categories
+                  .span4= speech.language
+                  .span4= speech.setting
+                  .span4= speech.topic
+              .span6.center [Player goes here]
+            .row-fluid.headings
+              .span6 Context
+            .row-fluid.context
+              .span6= speech.context
+            .row-fluid
+              .span6
+                .row-fluid.headings
+                  .span4 Difficulty
+                  .span4 Speed
+                .row-fluid.categories
+                  .span4= speech.difficulty
+                  .span4= speech.speed

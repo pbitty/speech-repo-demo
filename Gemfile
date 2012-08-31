@@ -5,10 +5,15 @@ gem 'devise', '2.1.2'
 gem 'sqlite3'
 gem 'simple_form'
 gem 'active_link_to'
+gem 'faker'
 
 
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
+end
+
+group :test do
+  gem 'capybara'
 end
 
 

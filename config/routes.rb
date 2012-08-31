@@ -1,6 +1,8 @@
-MciRailsDemo::Application.routes.draw do
+SpeechRepoDemo::Application.routes.draw do
   devise_for :accounts, path:'/', path_names: {sign_in: 'signin', sign_out: 'signout'}
   root to: "home#index"
+
+  get "/speeches" => "speech#index", as: :speeches
 
 
   #
@@ -10,7 +12,7 @@ MciRailsDemo::Application.routes.draw do
     match "#{stub_name}" => "stub##{stub_name}", as: stub_name
   end
 
-  %w(concatenator speeches interpretations).each { |stub_name| create_stub stub_name }
+  %w(concatenator interpretations).each { |stub_name| create_stub stub_name }
 
   scope "/admin" do
     create_stub "accounts"
