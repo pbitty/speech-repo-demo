@@ -13,16 +13,13 @@ describe "Speech pages" do
     describe "contents" do
       before { Speech.create!(topic: "aaa", context: "bbb") }
 
-      it "should have all headings" do
-        headings = %w(Language Setting Topic)
-
-        headings.each do |heading|
+      %w(Language Setting Topic).each do |heading|
+        it "should have heading: #{heading}" do
           should have_selector('.speech', heading)
         end
       end
-    end
 
+    end
     # TODO Write test checking for actual list of speeches
   end
-
 end
