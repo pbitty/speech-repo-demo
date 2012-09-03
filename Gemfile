@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'simple_form'
 gem 'active_link_to'
 gem 'faker'
+gem 'cancan'
 
 
 group :development, :test do
