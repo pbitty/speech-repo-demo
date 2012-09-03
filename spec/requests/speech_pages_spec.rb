@@ -19,7 +19,11 @@ describe "Speech pages" do
         end
       end
 
+      pending "list individual speeches"
+
     end
-    # TODO Write test checking for actual list of speeches
+
+    pending "access control"
+
   end
 end
