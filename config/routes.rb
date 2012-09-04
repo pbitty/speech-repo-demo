@@ -4,7 +4,14 @@ SpeechRepoDemo::Application.routes.draw do
   devise_for :accounts, path:'/', path_names: {sign_in: 'signin', sign_out: 'signout'}
   root to: "home#index"
 
-  get "/speeches" => "speech#index", as: :speeches
+  [:speeches, :interpretations].each do |resource|
+  end
+
+  resources :speeches, except: :show do
+    resources :interpretations, only: [:new, :create]
+  end
+
+  resources :interpretations, only: :index
 
 
   #
@@ -14,7 +21,7 @@ SpeechRepoDemo::Application.routes.draw do
     match "#{stub_name}" => "stub##{stub_name}", as: stub_name
   end
 
-  %w(concatenator interpretations).each { |stub_name| create_stub stub_name }
+  %w(concatenator).each { |stub_name| create_stub stub_name }
 
   scope "/admin" do
     create_stub "accounts"

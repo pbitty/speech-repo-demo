@@ -1,0 +1,8 @@
+%h1 My Interpretations
+%hr/
+.row-fluid
+  .span1 &nbsp;
+  .span10
+    %ul.speeches
+      - collection.each do |interpretation|
+        %li= "id: #{interpretation.id}"

@@ -1,0 +1,9 @@
+= simple_form_for resource, html: {class: 'form-horizontal'} do |f|
+  = f.association :language
+  = f.association :setting
+  = f.input :topic
+  = f.input :context
+  = f.association :speed
+  = f.association :difficulty
+  .form-actions
+    = f.submit class: "btn btn-large btn-primary"

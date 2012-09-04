@@ -213,6 +213,7 @@ DEPENDENCIES
   devise (= 2.1.2)
   faker
   haml
+  inherited_resources
   jquery-rails
   less-rails
   meta_search (>= 1.1.0.pre)

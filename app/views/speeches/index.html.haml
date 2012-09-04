@@ -1,12 +1,12 @@
 .pull-right
-  = link_to "Create speech", "#", class: "btn btn-large" if can? :create, Speech
+  = link_to "Create speech", new_speech_path, class: "btn btn-large" if can? :create, Speech
 %h1 Speeches
 %hr
 .row-fluid
   .span1 &nbsp;
   .span10
     %ul.speeches
-      - @speeches.each do |speech|
+      - collection.each do |speech|
         %li
           .speech
             .row-fluid
@@ -16,10 +16,11 @@
                   .span4 Setting
                   .span4 Topic
                 .row-fluid.categories
-                  .span4= # TODO implement
-                  .span4= # TODO implement
+                  .span4= speech.language
+                  .span4= speech.setting
                   .span4= speech.topic
-              .span6.center [Player goes here]
+              .span6.center
+                = link_to "Interpretation", new_speech_interpretation_path(speech), class: "btn" if can? :create, Interpretation
             .row-fluid.headings
               .span6 Context
             .row-fluid.context
@@ -30,5 +31,5 @@
                   .span4 Difficulty
                   .span4 Speed
                 .row-fluid.categories
-                  .span4= # TODO implement
-                  .span4= # TODO implement
+                  .span4= speech.difficulty
+                  .span4= speech.speed

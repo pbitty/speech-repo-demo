@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120903211428) do
+ActiveRecord::Schema.define(:version => 20120904034055) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",              :default => "", :null => false
@@ -50,15 +50,21 @@ ActiveRecord::Schema.define(:version => 20120903211428) do
 
   create_table "interpretations", :force => true do |t|
     t.integer  "speech_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "language_id"
+    t.integer  "year_of_study_id"
   end
 
   create_table "speeches", :force => true do |t|
     t.string   "topic"
     t.text     "context"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "language_id"
+    t.integer  "setting_id"
+    t.integer  "difficulty_id"
+    t.integer  "speed_id"
   end
 
 end

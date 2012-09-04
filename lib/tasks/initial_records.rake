@@ -2,7 +2,7 @@ namespace :db do
   namespace :choices do
     namespace :create do
       desc "Create all initial choices in db"
-      task all: [:languages, :settings]
+      task all: [:languages, :settings, :difficulties, :speeds]
 
       desc "Create languages"
       task languages: :environment do
@@ -19,7 +19,7 @@ namespace :db do
         create_choices(Difficulty, %w(Beginner Intermediate Advanced))
       end
 
-      desct "Create speeds"
+      desc "Create speeds"
       task speeds: :environment do
         create_choices(Speed, %w(Slow Medium Fast))
       end

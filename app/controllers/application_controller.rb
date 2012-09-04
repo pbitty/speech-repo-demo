@@ -3,11 +3,15 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, flash: {error: exception.message}
+  end
+
   def authorize_admin!
     unless current_account_is_sys_admin?
       # TODO Integrate 'unauthorized' redirect with rest of app
       # Perhaps redirect to 403-style page?
-      redirect_to root_path, notice: "Access denied"
+      redirect_to root_path, alert: "Access denied"
     end
   end
 
