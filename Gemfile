@@ -13,6 +13,7 @@ gem 'activeadmin'
 gem "meta_search", '>= 1.1.0.pre'
 
 gem 'inherited_resources'
+gem 'userstamp', git: "git://github.com/insphire/userstamp.git", ref: "f5605e16f09f33d88d9de629ac597e13b6f9df08"
 
 
 group :development, :test do

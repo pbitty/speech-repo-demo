@@ -1,4 +1,7 @@
 class Speech < ActiveRecord::Base
+  # TODO Improve Userstamp so stamper class name default can be set globally
+  stampable stamper_class_name: :account
+
   attr_accessible :context,
                   :topic,
                   :language_id,

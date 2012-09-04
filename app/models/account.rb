@@ -1,4 +1,6 @@
 class Account < ActiveRecord::Base
+  model_stamper
+
   # Roles determining access level
   # TODO Write role validity check (either in validation or in attr writer)
   ROLES =
@@ -27,5 +29,9 @@ class Account < ActiveRecord::Base
 
   def is_sys_admin?
     role === :sys_admin
+  end
+
+  def to_s
+    name
   end
 end

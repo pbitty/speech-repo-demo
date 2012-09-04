@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  include Userstamp
 
   protect_from_forgery
 
@@ -17,5 +18,13 @@ class ApplicationController < ActionController::Base
 
   def current_ability
     @current_ability ||= Ability.new(current_account)
+  end
+
+  def set_stamper
+    Account.stamper = self.current_account
+  end
+
+  def reset_stamper
+    Account.reset_stamper
   end
 end
