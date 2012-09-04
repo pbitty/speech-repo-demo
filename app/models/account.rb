@@ -15,8 +15,13 @@ class Account < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, as: :admin
 
   def name
     email
+  end
+
+  def is_sys_admin?
+    role === :sys_admin
   end
 end

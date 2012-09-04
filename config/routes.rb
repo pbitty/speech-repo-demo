@@ -1,4 +1,6 @@
 SpeechRepoDemo::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
   devise_for :accounts, path:'/', path_names: {sign_in: 'signin', sign_out: 'signout'}
   root to: "home#index"
 

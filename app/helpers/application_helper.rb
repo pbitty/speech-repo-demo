@@ -17,4 +17,8 @@ module ApplicationHelper
   def signout_link
     link_to "Sign out", destroy_account_session_path, method: :delete
   end
+
+  def current_account_is_sys_admin?
+    current_account && current_account.is_sys_admin?
+  end
 end

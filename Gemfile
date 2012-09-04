@@ -8,6 +8,10 @@ gem 'active_link_to'
 gem 'faker'
 gem 'cancan'
 
+# Active admin and deps
+gem 'activeadmin'
+gem "meta_search", '>= 1.1.0.pre'
+
 
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
@@ -21,7 +25,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml'
   gem 'less-rails'
