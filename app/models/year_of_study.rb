@@ -1,0 +1,2 @@
+class YearOfStudy < Choice
+end

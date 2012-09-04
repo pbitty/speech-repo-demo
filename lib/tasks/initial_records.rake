@@ -1,4 +1,4 @@
-namespace :mci do
+namespace :db do
   namespace :choices do
     namespace :create do
       desc "Create all initial choices in db"
@@ -12,6 +12,16 @@ namespace :mci do
       desc "Create settings"
       task settings: :environment do
         create_choices(Setting, %w(Conference Court Healthcare))
+      end
+
+      desc "Create difficulties"
+      task difficulties: :environment do
+        create_choices(Difficulty, %w(Beginner Intermediate Advanced))
+      end
+
+      desct "Create speeds"
+      task speeds: :environment do
+        create_choices(Speed, %w(Slow Medium Fast))
       end
 
       def create_choices(model_class, choices)
