@@ -6,7 +6,7 @@ class Ability
       anonymous
     else
       send(account.role)
-      # TODO Implement ownership editing ability
+      owner_of(Interpretation, account)
     end
   end
 
@@ -34,5 +34,9 @@ class Ability
 
   def anonymous
     can :read, Speech
+  end
+
+  def owner_of(class_name, account)
+    can :manage, class_name, creator_id: account.id
   end
 end

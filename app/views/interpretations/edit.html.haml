@@ -1,0 +1,16 @@
+%h1= (resource.new_record? ? "Create" : "Update") << " interpretation"
+%hr/
+- speech = resource.speech
+.span2 &nbsp;
+.span8
+  .well
+    %h3 Speech
+    %p= "Language: #{speech.language}"
+    %p= "Setting: #{speech.setting}"
+    %p= "Context: #{speech.context}"
+    %p= "Creator: #{speech.creator}"
+
+  .well
+    %h3
+      Interpretation
+      = render 'form'

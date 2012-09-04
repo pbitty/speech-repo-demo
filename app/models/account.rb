@@ -19,6 +19,8 @@ class Account < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role, as: :admin
 
+  has_many :interpretations, foreign_key: :creator_id, inverse_of: :creator
+
   def name
     email
   end
