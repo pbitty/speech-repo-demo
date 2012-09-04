@@ -18,6 +18,8 @@
           = nav_link "Setting", setting_path
           = nav_link "Speed", speed_path
           = nav_link "Year of study", yearofstudy_path
+          %li.divider
+          = nav_link "ActiveAdmin", admin_root_path
       %li.divider-vertical
 
   - unless is_active_link? new_account_session_path

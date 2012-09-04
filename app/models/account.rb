@@ -21,6 +21,10 @@ class Account < ActiveRecord::Base
     email
   end
 
+  def role
+    super.to_sym
+  end
+
   def is_sys_admin?
     role === :sys_admin
   end
