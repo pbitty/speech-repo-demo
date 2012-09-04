@@ -12,6 +12,10 @@ class Ability
 
   private
 
+  #
+  # Role hierarchy: each method represents a role
+  # (and calls 'lower' methods in the hierarchy)
+  #
   def sys_admin
     speech_admin
     can :manage, :all
@@ -36,6 +40,11 @@ class Ability
     can :read, Speech
   end
 
+
+  #
+  # Ownership access: an account can manage
+  # a model instance if it is its creator
+  #
   def owner_of(class_name, account)
     can :manage, class_name, creator_id: account.id
   end
