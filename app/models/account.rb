@@ -21,12 +21,21 @@ class Account < ActiveRecord::Base
 
   has_many :interpretations, foreign_key: :creator_id, inverse_of: :creator
 
+  validates :role, presence: true
+
   def name
     email
   end
 
+  def role=(role)
+    # TODO Figure out best practice for handling ActiveRecord attribute conversions
+    # (is it even necessary?)
+    raise NameError, "Invalid role: #{role}" unless role.blank? || ROLES.include?(role.to_sym)
+    super(role)
+  end
+
   def role
-    super.to_sym
+    super.try(:to_sym)
   end
 
   def is_sys_admin?
