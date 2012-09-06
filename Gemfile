@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'devise', '2.1.2'
-gem 'sqlite3'
 gem 'simple_form'
 gem 'active_link_to'
 gem 'faker'
@@ -15,9 +14,13 @@ gem "meta_search", '>= 1.1.0.pre'
 gem 'inherited_resources'
 gem 'userstamp', git: "git://github.com/insphire/userstamp.git", ref: "f5605e16f09f33d88d9de629ac597e13b6f9df08"
 
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
+  gem 'sqlite3'
 end
 
 group :test do
