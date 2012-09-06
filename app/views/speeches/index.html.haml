@@ -20,7 +20,7 @@
                   .span4= speech.setting
                   .span4= speech.topic
               .span6.center
-                = link_to "Interpretation", new_speech_interpretation_path(speech), class: "btn" if can? :create, Interpretation
+                = link_to "Interpret", new_speech_interpretation_path(speech), class: "btn" if can? :create, Interpretation
             .row-fluid.headings
               .span6 Context
             .row-fluid.context
