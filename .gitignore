@@ -19,3 +19,5 @@
 
 .vagrant
 Vagrantfile
+
+.c9revisions/
