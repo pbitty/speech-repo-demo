@@ -17,7 +17,8 @@
 *.iml
 .idea/
 
-.vagrant
+.vagrant/
+.vagrant*
 Vagrantfile
 
 .c9revisions/
