@@ -8,15 +8,15 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+ *#= require_self
  *
 */
 //
-@import "twitter-bootstrap/bootstrap.less";
-@import "twitter-bootstrap/responsive.less";
+@import "bootstrap";
+@import "bootstrap-responsive";
 
 // Mixins
-.darker-translucent-bg() {
+@mixin darker-translucent-bg {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -29,7 +29,7 @@
 .navbar {
     margin-bottom: 10px;
     .navbar-inner {
-        .border-radius(0);
+        @include border-radius(0);
 
         .brand {
             a {
@@ -54,20 +54,20 @@
                 }
 
                 & > a {
-                    .transition(background-color 0.1s);
+                    @include transition(background-color 0.1s);
                 }
 
             // This locks us into a 'li > a' hierarchy,
             // but it's contained to the navbar structure, so it's easy to tweak later.
                 &.dropdown.open > a,
                 > a:hover {
-                    .darker-translucent-bg();
+                    @include darker-translucent-bg;
                 }
 
                 &.dropdown.active > a,
                 &.dropdown.open.active > a {
                 // Override Bootstrap's 'transparent' bg color
-                    background-color: @navbarLinkBackgroundActive;
+                    background-color: $navbarLinkBackgroundActive;
                 }
             }
         }
@@ -82,8 +82,8 @@
         input[type=text],
         input[type=email],
         input[type=password] {
-            .box-sizing(border-box);
-            .size(auto, 100%);
+            @include box-sizing(border-box);
+            @include size(auto, 100%);
             font-size: 20px;
         }
         .fields {
@@ -103,10 +103,10 @@ li {
 .speeches {
     .speech {
         margin-bottom: 10px;
-        border-bottom: 1px solid @grayLighter;
+        border-bottom: 1px solid $grayLighter;
         .headings {
             font-size: 80%;
-            color: @grayLight;
+            color: $grayLight;
             margin-bottom: 0px;
         }
         .categories {
